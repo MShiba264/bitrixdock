@@ -41,6 +41,14 @@ services:
         networks:
             - bitrix
         restart: always
+    next:
+        build:
+            context: ./nextjs-docker
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/nextjs
     memcached:
         image: memcached:1.6.12-alpine
         volumes_from:
